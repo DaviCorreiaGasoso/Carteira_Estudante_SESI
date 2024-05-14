@@ -7,7 +7,52 @@ from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 from kivy.uix.image import AsyncImage
 
-Window.size = (900,500)
+Window.size = (480,700)
+
+class Login_Incial(App):
+    def build(self):
+        Window.clearcolor = (1,1,1,1)
+        l = FloatLayout()
+        lo = Label(text="SELECIONE O LOGIN", 
+                   pos_hint={'x':0.455, 'y':0.60}, 
+                   size_hint=(None, None), 
+                   font_size=(50),
+                   bold=True,
+                   color=[0,0,1,0.9])
+        
+        btna = Button(text="ALUNO", 
+                      pos_hint={'x':0.4, 'y':0.40}, 
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+        
+        btnr = Button(text="RESPONSÁVEL",
+                      pos_hint={'x':0.4, 'y':0.30},
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+        
+        btnf = Button(text="FUNCIONÁRIO",
+                      pos_hint={'x': 0.4, 'y':0.20},
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+
+        l.add_widget(lo)
+        l.add_widget(btna)
+        l.add_widget(btnr)
+        l.add_widget(btnf)
+        return l
+
+
+
+
+
+
+
+
+
+
 
 class Login_Responsavel(App):
     def build(self):
@@ -15,19 +60,28 @@ class Login_Responsavel(App):
         
         layout_principal = FloatLayout()
 
+        label_titulo = Label(text="LOGIN DO RESPONSÁVEL", 
+            pos_hint={'x':0.455, 'y':0.70}, 
+            size_hint=(None, None), 
+            font_size=(50),
+            bold=True,
+            color=[0.2, 0.5, 0.7, 1])
+        
+        layout_principal.add_widget(label_titulo)
+
         label_login = Label(
             text="Login", 
             size_hint=(.2, .1),
-            pos=(195, 350),
-            font_size= 40,
+            pos=(180, 350),
+            font_size= 45,
             color = [1,1,1,1],
             halign = ('center')
         )
         with label_login.canvas.before:
             Color (0.2, 0.5, 0.7, 1),
             Rectangle (
-            pos=(200,350),
-            size=(200, 60)
+            pos=(195,350),
+            size=(195, 63)
             )
 
         layout_principal.add_widget(label_login)
@@ -45,15 +99,15 @@ class Login_Responsavel(App):
         label_senha = Label(
             text="Senha", 
             size_hint=(.2, .1),
-            pos=(195, 250),
-            font_size= 40,
+            pos=(180, 250),
+            font_size= 45,
             color = [1,1,1,1],
             halign = ('center')
         )
         with label_senha.canvas.before:
             Color (0.2, 0.5, 0.7, 1),
             Rectangle (
-            pos=(200,250),
+            pos=(195,250),
             size=(200, 60)
             )
         
@@ -68,6 +122,17 @@ class Login_Responsavel(App):
         )
 
         layout_principal.add_widget(input_senha)
+
+        botao_entrar = Button(
+            text="Entrar",
+            size_hint=(.4, .1),
+            pos=(340, 150),
+            background_color = [0.2, 0, 1, 1],
+            font_size = 35
+        )
+
+        layout_principal.add_widget(botao_entrar)
+
 
         return layout_principal
 
