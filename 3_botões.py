@@ -3,10 +3,10 @@ from kivy.core.window import Window
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
 from kivy.uix.button import Button
-from kivy.graphics import Canvas, Rectangle
 
 Window.size = (900,500)
-Window.clearcolor
+Window.clearcolor = (1,1,1,1)
+
 class Tela_Login(App):
     def build(self):
         l = FloatLayout()
@@ -21,21 +21,20 @@ class Tela_Login(App):
                       pos_hint={'x':0.4, 'y':0.40}, 
                       halign=('center'),
                       size_hint=(0.2, 0.075),
-                      font_size=(30))
+                      font_size=(20))
         
         btnr = Button(text="RESPONSÁVEL",
                       pos_hint={'x':0.4, 'y':0.30},
                       halign=('center'),
                       size_hint=(0.2, 0.075),
-                      font_size=(30))
+                      font_size=(20))
         
         btnf = Button(text="FUNCIONÁRIO",
                       pos_hint={'x': 0.4, 'y':0.20},
                       halign=('center'),
                       size_hint=(0.2, 0.075),
-                      font_size=(30))
-        
-        
+                      font_size=(20))
+
         l.add_widget(lo)
         l.add_widget(btna)
         l.add_widget(btnr)
