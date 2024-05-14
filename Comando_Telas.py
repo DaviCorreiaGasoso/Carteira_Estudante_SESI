@@ -9,6 +9,41 @@ from kivy.uix.image import AsyncImage
 
 Window.size = (900,500)
 
+class Login_Incial(App):
+    def build(self):
+        Window.clearcolor = (1,1,1,1)
+        l = FloatLayout()
+        lo = Label(text="SELECIONE O LOGIN", 
+                   pos_hint={'x':0.455, 'y':0.60}, 
+                   size_hint=(None, None), 
+                   font_size=(50),
+                   bold=True,
+                   color=[0,0,1,0.9])
+        
+        btna = Button(text="ALUNO", 
+                      pos_hint={'x':0.4, 'y':0.40}, 
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+        
+        btnr = Button(text="RESPONSÁVEL",
+                      pos_hint={'x':0.4, 'y':0.30},
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+        
+        btnf = Button(text="FUNCIONÁRIO",
+                      pos_hint={'x': 0.4, 'y':0.20},
+                      halign=('center'),
+                      size_hint=(0.2, 0.075),
+                      font_size=(20))
+
+        l.add_widget(lo)
+        l.add_widget(btna)
+        l.add_widget(btnr)
+        l.add_widget(btnf)
+        return l
+
 class Login_Responsavel(App):
     def build(self):
         Window.clearcolor=(1, 1, 1, 0)
@@ -71,4 +106,4 @@ class Login_Responsavel(App):
 
         return layout_principal
 
-Login_Responsavel().run()
+Login_Incial().run()
