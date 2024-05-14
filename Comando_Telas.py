@@ -7,7 +7,7 @@ from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 from kivy.uix.image import AsyncImage
 
-Window.size = (900,500)
+Window.size = (480,700)
 
 class Login_Incial(App):
     def build(self):
@@ -44,25 +44,44 @@ class Login_Incial(App):
         l.add_widget(btnf)
         return l
 
+
+
+
+
+
+
+
+
+
+
 class Login_Responsavel(App):
     def build(self):
         Window.clearcolor=(1, 1, 1, 0)
         
         layout_principal = FloatLayout()
 
+        label_titulo = Label(text="LOGIN DO RESPONSÁVEL", 
+            pos_hint={'x':0.455, 'y':0.70}, 
+            size_hint=(None, None), 
+            font_size=(50),
+            bold=True,
+            color=[0.2, 0.5, 0.7, 1])
+        
+        layout_principal.add_widget(label_titulo)
+
         label_login = Label(
             text="Login", 
             size_hint=(.2, .1),
-            pos=(195, 350),
-            font_size= 40,
+            pos=(180, 350),
+            font_size= 45,
             color = [1,1,1,1],
             halign = ('center')
         )
         with label_login.canvas.before:
             Color (0.2, 0.5, 0.7, 1),
             Rectangle (
-            pos=(200,350),
-            size=(200, 60)
+            pos=(195,350),
+            size=(195, 63)
             )
 
         layout_principal.add_widget(label_login)
@@ -80,15 +99,15 @@ class Login_Responsavel(App):
         label_senha = Label(
             text="Senha", 
             size_hint=(.2, .1),
-            pos=(195, 250),
-            font_size= 40,
+            pos=(180, 250),
+            font_size= 45,
             color = [1,1,1,1],
             halign = ('center')
         )
         with label_senha.canvas.before:
             Color (0.2, 0.5, 0.7, 1),
             Rectangle (
-            pos=(200,250),
+            pos=(195,250),
             size=(200, 60)
             )
         
@@ -104,6 +123,17 @@ class Login_Responsavel(App):
 
         layout_principal.add_widget(input_senha)
 
+        botao_entrar = Button(
+            text="Entrar",
+            size_hint=(.4, .1),
+            pos=(340, 150),
+            background_color = [0.2, 0, 1, 1],
+            font_size = 35
+        )
+
+        layout_principal.add_widget(botao_entrar)
+
+
         return layout_principal
 
-Login_Incial().run()
+Login_Responsavel().run()
