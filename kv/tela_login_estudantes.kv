@@ -1,7 +1,7 @@
 ScreenManager:
-    Login_Pais:
+    Login_Estudantes:
 
-<Login_Pais>:
+<Login_Estudantes>:
     name: 'login'
 
     MyCanvasWidget:
@@ -22,7 +22,7 @@ ScreenManager:
             pos_hint: {"center_x": 0.5, "top": 0.9}
         
         MDLabel:
-            text: "Pais e Responsáveis"
+            text: "ESTUDANTE"
             halign: 'center'
             theme_text_color: "Custom"
             text_color: 1, 1, 1, 1
@@ -39,7 +39,7 @@ ScreenManager:
             icon_left: "account"
             mode: "rectangle"
             helper_text_mode: "on_focus"
-            helper_text: "DIGITE SEU EMAIL"
+            helper_text: "DIGITE SEU CPF OU MATRÍCULA"
             helper_text_color: 'blue'
             size_hint: (0.8, 0.1)
             pos_hint: {"center_x": 0.5, "center_y": 0.6}
@@ -58,7 +58,7 @@ ScreenManager:
            
         
         MDRaisedButton:
-            text: "Entrar"
+            text: "Login"
             size_hint: (0.4, 0.1)
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
