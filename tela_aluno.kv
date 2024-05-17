@@ -1,0 +1,45 @@
+ScreenManager
+    MDScreen:
+        name: 'tela_aluno'
+
+        MDTopAppBar:
+            title: 'Carteira SESI'
+            right_action_items: [['menu', lambda x: app.callback()]]
+            pos_hint: {"top":1}
+            elevation: 3
+
+        MyCanvasWidget:
+            size_hint: None, None
+            size: 300, 300
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+        MDLabel:
+            text: 'LOGIN DO ALUNO'
+            pos_hint: {'center_x':0.60, 'center_y':0.75}
+            size_hint: 0.5, 0.5
+            font_size: (35)
+
+        MDLabel:
+            text: 'Nome:'
+            pos_hint: {'x':0.45, 'center_y':0.65}
+
+
+<MyCanvasWidget@Widget>
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.25
+
+        RoundedRectangle:
+            pos: self.center_x-680/2, self.center_y-500/2
+            size: 700, 500
+            radius: [30,30,30,30]
+
+        Color:
+            rgba: 0.9,0.9,0.9,1
+
+        RoundedRectangle:
+            pos: self.center_x-700/2, self.center_y-480/2
+            size: 700, 500
+            radius: [30,30,30,30]
+
+        
