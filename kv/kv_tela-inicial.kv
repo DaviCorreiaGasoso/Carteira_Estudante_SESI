@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 MDScreen:
     MDLabel:
@@ -46,6 +47,109 @@ MDScreen:
         size_hint: 0.1, 0.1
         pos_hint: {'center_x: 0.75,'center_y': 0.61}
 
+=======
+ScreenManager:
+    MDScreen:
+        name: 'tela_inicial'
+        MDLabel:
+            text: 'Quem está usando o'
+            halign: 'center'
+            pos_hint: {'center_x':0.5, 'center_y':0.85}
+
+        MDLabel:
+            text: 'APP?'
+            halign: 'center'
+            pos_hint: {'center_x':0.5, 'center_y':0.80}
+            font_style: 'H4'
+            bold: True
+
+        MyCanvasWidget:
+            size_hint: None, None
+            size: 300, 300
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+        MDRaisedButton:
+            text: 'ALUNO'
+            halign: 'center'
+            size_hint: 0.25, 0.05
+            border_radius: [20]
+            font_size: 25
+            pos_hint: {'center_x': 0.45,'center_y':0.610 }
+            on_release: app.root.current = 'teste_1'
+
+        MDRaisedButton:
+            text: 'RESPONSÁVEL'
+            halign: 'center'
+            size_hint: 0.25, 0.05
+            border_radius: [20]
+            font_size: 25
+            pos_hint: {'center_x': 0.45,'center_y':0.495 }
+            on_release: app.root.current = 'teste_2'
+
+        MDRaisedButton:
+            text: 'FUNCIONÁRIO'
+            halign: 'center'
+            size_hint: 0.25, 0.05
+            border_radius: [20]
+            font_size: 25
+            pos_hint: {'center_x': 0.45,'center_y':0.385 }
+            on_release: app.root.current = 'teste_3'
+
+        AsyncImage:
+            source: 'https://cdn-icons-png.flaticon.com/512/21/21079.png'
+            size_hint: 0.08, 0.08
+            pos_hint: {'center_x': 0.640,'center_y': 0.61}
+
+        AsyncImage:
+            source: 'https://cdn-icons-png.flaticon.com/128/3106/3106921.png'
+            size_hint: 0.08, 0.08
+            pos_hint: {'center_x': 0.640,'center_y': 0.51}
+
+        AsyncImage:
+            source: 'https://cdn-icons-png.flaticon.com/512/251/251054.png'
+            size_hint: 0.08, 0.08
+            pos_hint: {'center_x': 0.640,'center_y': 0.40}
+
+    MDScreen:
+        name: 'teste_1'
+
+        MDLabel:
+            text: 'Tela ALUNO'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            halign: 'center'
+            
+
+        MDFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.root.current = 'tela_inicial'
+
+    MDScreen:
+        name: 'teste_2'
+
+        MDLabel:
+            text: 'Tela RESPONSÁVEL'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            halign: 'center'
+
+        MDFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.root.current = 'tela_inicial'
+
+    MDScreen:
+        name: 'teste_3'
+
+        MDLabel:
+            text: 'Tela FUNCIONÁRIO'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            halign: 'center'
+
+        MDFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.root.current = 'tela_inicial'
+>>>>>>> e4c3fb19e1ac2c9be3503c4d03e2aa6c508edc1d
 
 <MyCanvasWidget@Widget>:
     canvas.before:
