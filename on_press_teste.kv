@@ -1,0 +1,20 @@
+ScreenManager:
+    Screen:
+        name: 'first_screen'
+        MDFlatButton:
+            text: "Login"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1  # Cor do texto branca
+            md_bg_color: 0, 0, 0, 1  # Cor de fundo preta
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.root.current = 'second_screen'
+
+    Screen:
+        name: 'second_screen'
+        MDFlatButton:
+            text: "Voltar"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1  # Cor do texto branca
+            md_bg_color: 0, 0, 0, 1  # Cor de fundo preta
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: app.root.current = 'first_screen'
