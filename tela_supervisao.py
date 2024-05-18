@@ -4,16 +4,18 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.uix.button import MDRectangleFlatIconButton
 from kivymd.uix.button import MDRoundFlatButton
 from kivymd.uix.button import MDIconButton, MDFillRoundFlatButton
-from def_bd import insert_responsavel, insert_aluno, insert_porteiro, insert_supervisao, delete_responsavel, delete_aluno, delete_porteiro, delete_supervisao
-from conexao_bd import connect
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.list import OneLineAvatarListItem
 from kivy.properties import StringProperty
-
+from kivymd.uix.list import OneLineListItem
+from kivymd.uix.list import OneLineListItem, MDList
+from kivymd.uix.scrollview import ScrollView
+from kivy.uix.boxlayout import BoxLayout
+from def_bd import insert_responsavel, insert_aluno, insert_porteiro, insert_supervisao, delete_responsavel, delete_aluno, delete_porteiro, delete_supervisao
+from conexao_bd import connect
 
 mydb = connect()
-
 KV2 = '''
 ScreenManager:
     Screen:
@@ -205,10 +207,10 @@ ScreenManager:
 
         MDRectangleFlatIconButton:
             icon: "arrow-down"
-            text: "Estudante                                     "
+            text: "Estudante                         "
             theme_text_color: "Custom"
             text_color: "gray"
-            line_color: "red"
+            line_color: "gray"
             theme_icon_color: "Custom"
             icon_color: "gray"
             pos_hint: {'center_x': 0.5, 'center_y': 0.3}
@@ -476,6 +478,7 @@ class Item(OneLineAvatarListItem):
 
 class MainApp(MDApp):
     dialog = None
+    mydb = connect()
 
     def build(self):
         return Builder.load_string(KV2)
@@ -530,27 +533,25 @@ class MainApp(MDApp):
         removendo = delete_supervisao(mydb, id)
 
     def show_simple_dialog(self):
-        if not self.dialog:
-            
-            self.dialog = MDDialog(
-                title="Set backup account",
-                type="simple",
-                items=[
-                    Item(text="user01@gmail.com", source="kivymd/images/logo/kivymd-icon-128.png"),
-                    Item(text="user02@gmail.com", source="data/logo/kivy-icon-128.png"),
-                ],
-            )
+        cursor = self.mydb.cursor()
+        cursor.execute("SELECT id_aluno, nome FROM aluno")
+        alunos = cursor.fetchall()
+        cursor.close()
+        
+        content = BoxLayout(orientation='vertical')
+        scroll = ScrollView()
+        list_view = MDList()
+        scroll.add_widget(list_view)
+        content.add_widget(scroll)
+
+        for aluno in alunos:
+            list_view.add_widget(OneLineListItem(text=f"ID: {aluno[0]} - Nome: {aluno[1]}"))
+        
+        self.dialog = MDDialog(
+            title="Alunos",
+            type="custom",
+            content_cls=content,
+        )
         self.dialog.open()
 
-'''cursor = mydb.cursor()
-cursor.execute("SELECT * FROM alunos")
-livros = cursor.fetchall()
-
-# Exibindo a lista --
-for livro in livros:
-    texto = f"ID: {livro[0]}, Título: {livro[1]}, Autor: {livro[2]}, Ano: {livro[3]}"
-    label_lista = tk.Label(janela_listar, text=texto, background='black', foreground='white')
-    label_lista.pack()'''
-
-mydb.close()
 MainApp().run()
