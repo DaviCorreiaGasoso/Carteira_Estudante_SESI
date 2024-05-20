@@ -1,0 +1,58 @@
+MDScreen:
+    
+    FloatLayout:
+                
+        MDTopAppBar:
+            type: "small"
+            pos_hint: {"top":1}
+
+            MDTopAppBarTitle:
+                text: "SESI"
+                pos_hint: {"center_x": .5}
+
+        AsyncImage:
+            source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
+            size_hint: 0.3,0.3
+            pos: 190,230
+
+                 
+
+        MDLabel:
+            text: "Informações do Aluno" 
+            halign: 'center'
+            pos: 350,470
+            size_hint: .3, .2
+            bold: True
+
+
+        MDButton:
+            style: 'filled'
+            size_hint_x: 400
+            pos: 440,60
+            MDButtonText:
+                text: "Pedir Autorização"
+
+
+    MDTextField:
+        mode: "outlined"
+        size_hint_x: None
+        width: "240dp"
+        pos: 500,400
+        MDTextFieldHintText:
+            text: "Nome"
+
+    MDTextField:
+        mode: "outlined"
+        size_hint_x: None
+        width: "240dp"
+        pos: 500,300
+        MDTextFieldHintText:
+            text: "Série"
+
+    MDTextField:
+        mode: "outlined"
+        size_hint_x: None
+        width: "240dp"
+        pos: 500,200
+        MDTextFieldHintText:
+            text: "Status"
