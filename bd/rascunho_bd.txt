@@ -29,14 +29,22 @@ CREATE TABLE IF NOT EXISTS porteiro (
     senha VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS registro (
-    id_registro INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS frequencia (
+    id_frequencia INT AUTO_INCREMENT PRIMARY KEY,
     aluno_id INT,
     porteiro_id INT,
     tipo ENUM('Entrada', 'Saída'),
     data_hora DATETIME,
     FOREIGN KEY (aluno_id) REFERENCES aluno(id_aluno),
     FOREIGN KEY (porteiro_id) REFERENCES porteiro(id_porteiro)
+);
+
+CREATE TABLE IF NOT EXISTS autenticacao (
+    id_autenticacao INT AUTO_INCREMENT PRIMARY KEY,
+    aluno_id INT NOT NULL,
+    email VARCHAR(100),
+    data_hora DATETIME,
+    FOREIGN KEY (aluno_id) REFERENCES aluno(id_aluno)
 );
 
 INSERT INTO responsavel (nome, telefone, email, senha) VALUES
@@ -47,10 +55,10 @@ INSERT INTO responsavel (nome, telefone, email, senha) VALUES
     ('Rodrigo', '(81) 90000-0000', 'rodrigo@gmail.com', '1234'),
     ('Lurdes', '(81) 90000-0000', 'lurdes@gmail.com', '1234');
 
-INSERT INTO aluno (nome, idade, turma, responsavel_id, email, senha, stts) VALUES
-    (0001234, 'Melissa', 17, '3D', 1, 'melissa@gmail.com', '1234', 1),
-    (0001235, 'Sofia', 17, '3D', 2, 'sofia@gmail.com', '1234', 0),
-    (0001236, 'Emilly', 17, '3D', 3, 'emilly@gmail.com', '1234', 0),
-    (0001237, 'Letícia', 17, '3D', 4, 'leticia@gmail.com', '1234', 1),
-    (0001238, 'Davi', 17, '3D', 5, 'davi@gmail.com', '1234', 1),
-    (0001239, 'Matheus', 17, '3D', 6, 'matheus@gmail.com', '1234', 0);
+INSERT INTO aluno (matricula, nome, turma, turno, responsavel_id, email, senha, stts) VALUES
+    ('0001234', 'Melissa', '3D','Vespertino',  1, 'melissa@gmail.com', '1234', 1),
+    ('0001235', 'Sofia', '3D','Vespertino', 2, 'sofia@gmail.com', '1234', 0),
+    ('0001236', 'Emilly', '3D','Vespertino', 3, 'emilly@gmail.com', '1234', 0),
+    ('0001237', 'Letícia', '3D','Vespertino', 4, 'leticia@gmail.com', '1234', 1),
+    ('0001238', 'Davi', '3D','Vespertino', 5, 'davi@gmail.com', '1234', 1),
+    ('0001239', 'Matheus', '3D','Vespertino', 6, 'matheus@gmail.com', '1234', 0);
