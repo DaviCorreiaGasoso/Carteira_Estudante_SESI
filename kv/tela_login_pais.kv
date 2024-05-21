@@ -1,8 +1,13 @@
+#:include kv/tela_pais.kv
 ScreenManager:
     Login_Pais:
+    Tela_Pais:
+
+<Tela_Pais>:
+    name: 'tela_pais'
 
 <Login_Pais>:
-    name: 'login'
+    name: 'login_pais'
 
     MyCanvasWidget:
         size_hint: None, None
@@ -63,7 +68,7 @@ ScreenManager:
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
-            on_release: app.login()
+            on_release:  app.root.current = 'tela_pais'
     
 <MyCanvasWidget@Widget>:
     canvas.before:
