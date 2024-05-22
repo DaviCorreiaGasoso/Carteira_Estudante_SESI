@@ -49,7 +49,7 @@ class LoginApp(MDApp):
             self.root.get_screen('login_funcionarios').ids.texto_cor.text_color = (1,0,0,1)
 
         else:
-            print ('oi')
+            print ('oi, suave?')
 
 if __name__ == "__main__":
     LoginApp().run()
