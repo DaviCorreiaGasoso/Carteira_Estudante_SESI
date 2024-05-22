@@ -68,7 +68,16 @@ ScreenManager:
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
-            on_release:  app.root.current = 'Tela_Pais'
+            on_release: app.verificar_login_r()
+
+        MDLabel:
+            text: ''
+            pos_hint: {'center_x': 0.5, 'center_y':0.2}
+            halign: 'center'
+            font_size: 30
+            theme_text_color: 'Custom'
+            text_color: 1,0,0,0
+            id: text
     
 <MyCanvasWidget@Widget>:
     canvas.before:

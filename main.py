@@ -27,29 +27,52 @@ class Login_Funcionarios(Screen):
 class Tela_Funcionarios(Screen):
     pass
 
-class LoginApp(MDApp):
+class LoginInicial(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Blue"
         return Builder.load_file('main.kv')
     
-    def verificar_login(self):
+    def verificar_login_f(self):
+        from conexao_bd import connect
         mydb = connect()
 
         user = self.root.get_screen('login_funcionarios').ids.user.text
         password = self.root.get_screen('login_funcionarios').ids.password.text
         
-        mycursor = mydb.cursor
+        mycursor = mydb.cursor()
         sql = 'SELECT nome FROM aluno WHERE email = %s AND senha = %s;'
         val = (user, password)
+        mycursor.execute(sql, val)
         v = mycursor.fetchone()
         mydb.commit()
 
         if (v==None):
-            self.root.get_screen('login_funcionarios').ids.texto_cor.text = "Credenciais incorretas"
-            self.root.get_screen('login_funcionarios').ids.texto_cor.text_color = (1,0,0,1)
+            self.root.get_screen('login_funcionarios').ids.text_color.text = "Credenciais incorretas"
+            self.root.get_screen('login_funcionarios').ids.text_color.text_color = (1,0,0,1)
 
         else:
             print ('oi, suave?')
 
-if __name__ == "__main__":
-    LoginApp().run()
+    def verificar_login_r(self):
+        from conexao_bd import connect
+        mydb = connect()
+
+        user = self.root.get_screen('login_funcionarios').ids.user.text
+        password = self.root.get_screen('login_funcionarios').ids.password.text
+
+        mycursor = mydb.cursor()
+        sql = 'SELECT nome FROM responsavel WHERE email = %s AND senha = %s;'
+        val = (user, password)
+        mycursor.execute(sql, val)
+        v = mycursor.fetchone()
+        mydb.commit()
+
+        if v is None:
+            self.root.get_screen('login_pais').ids.text.text = "Credenciais incorretas"
+            self.root.get_screen('login_pais').ids.text.text_color = (1,0,0,1)
+
+        else:
+            print ('oi')
+
+
+LoginInicial().run()
