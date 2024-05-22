@@ -1,6 +1,7 @@
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.app import MDApp
+from conexao_bd import connect
 
 class Gerenciador (ScreenManager):
     pass
@@ -30,14 +31,25 @@ class LoginApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Blue"
         return Builder.load_file('main.kv')
-
+    
     def verificar_login(self):
-        user = self.root.get_screen('login').ids.user.text
-        password = self.root.get_screen('login').ids.password.text
-        if user == "admin" and password == "admin":
-            print("Login bem-sucedido!")
+        mydb = connect()
+
+        user = self.root.get_screen('login_funcionarios').ids.user.text
+        password = self.root.get_screen('login_funcionarios').ids.password.text
+        
+        mycursor = mydb.cursor
+        sql = 'SELECT nome FROM aluno WHERE email = %s AND senha = %s;'
+        val = (user, password)
+        v = mycursor.fetchone()
+        mydb.commit()
+
+        if (v==None):
+            self.root.get_screen('login_funcionarios').ids.texto_cor.text = "Credenciais incorretas"
+            self.root.get_screen('login_funcionarios').ids.texto_cor.text_color = (1,0,0,1)
+
         else:
-            print("Usuário ou senha incorretos!")
+            print ('oi')
 
 if __name__ == "__main__":
     LoginApp().run()

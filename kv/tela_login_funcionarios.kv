@@ -65,6 +65,15 @@ ScreenManager:
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
             on_release: app.login()
+
+        MDLabel:
+            text: ''
+            pos_hint: {'center_x': 0.5, 'center_y':0.2}
+            halign: 'center'
+            font_size: 30
+            theme_text_color: 'Custom'
+            text_color: 1,0,0,0
+            id: text_color
     
 <MyCanvasWidget@Widget>:
     canvas.before:

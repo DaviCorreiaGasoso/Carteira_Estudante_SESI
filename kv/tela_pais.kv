@@ -2,17 +2,13 @@ ScreenManager:
     Tela_Pais:
 
 <Tela_Pais>: 
-    name: tela_pais
+    name: 'Tela_Pais'
 
     FloatLayout:
                 
         MDTopAppBar:
-            type: "small"
-            pos_hint: {"top":1}
-
-            MDTopAppBarTitle:
-                text: "SESI"
-                pos_hint: {"center_x": .5}
+            title: "Carteira SESI"
+            pos_hint: {"center_y": 0.98}
 
         AsyncImage:
             source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
@@ -27,35 +23,45 @@ ScreenManager:
             size_hint: .3, .2
             bold: True
 
+    
+        MDTextField:
+            id: 'nome_aluno_pais'
+            mode: "rectangle"
+            size_hint_x: None
+            width: "240dp"
+            pos: 500,400
+            hint_text: "Nome"
 
-        MDButton:
-            style: 'filled'
-            size_hint_x: 400
-            pos: 440,60
-            MDButtonText:
-                text: "Pedir Autorização"
+        MDTextField:
+            id: 'serie_aluno_pais'
+            mode: "rectangle"
+            size_hint_x: None
+            width: "240dp"
+            pos: 500,300
+            hint_text: "Série"
 
-
-    MDTextField:
-        mode: "outlined"
-        size_hint_x: None
-        width: "240dp"
-        pos: 500,400
-        MDTextFieldHintText:
-            text: "Nome"
-
-    MDTextField:
-        mode: "outlined"
-        size_hint_x: None
-        width: "240dp"
-        pos: 500,300
-        MDTextFieldHintText:
-            text: "Série"
-
-    MDTextField:
-        mode: "outlined"
-        size_hint_x: None
-        width: "240dp"
-        pos: 500,200
-        MDTextFieldHintText:
-            text: "Status"
+        MDTextField:
+            id: 'status_aluno_pais'
+            mode: "rectangle"
+            size_hint_x: None
+            width: "240dp"
+            pos: 500,200    
+            hint_text: "Status"
+        
+        MDRaisedButton:
+            id: 'Pedido_autorização'
+            text: "Pedir Autorização"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.3, "center_y": 0.1}
+            md_bg_color: "green"
+            
+        
+        MDRaisedButton:
+            id: 'mostrar_info'
+            text: "Mostrar Informações"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.7, "center_y": 0.1}
+            md_bg_color: "green"
+            on_release: app.mostrar_info()
