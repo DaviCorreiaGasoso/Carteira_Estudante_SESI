@@ -1,0 +1,64 @@
+ScreenManager:
+    Tela_Pais:
+
+<Tela_Pais>: 
+    name: 'Tela_Pais'
+
+    FloatLayout:
+                
+        MDTopAppBar:
+            title: "Carteira SESI"
+            pos_hint: {"center_y": 0.98}
+
+        AsyncImage:
+            source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
+            size_hint: 0.3,0.3
+            pos: 190,230
+
+
+        MDLabel:
+            text: "Informações do Aluno" 
+            halign: 'center'
+            pos: 350,470
+            size_hint: .3, .2
+            bold: True
+
+    
+        MDLabel:
+            id: 'nome_aluno_pais'
+            mode: "rectangle"
+            size_hint_x: None
+            width: "240dp"
+            pos: 500,400
+            hint_text: "Nome"
+
+        MDLabel:
+            id: 'serie_aluno_pais'
+            mode: "rectangle"
+            size_hint_x: None
+            width: "240dp"
+            pos: 500,300
+            hint_text: "Série"
+
+        MDLabel:
+            id: 'status_aluno_pais'
+            size_hint_x: None
+            pos: 500,200    
+        
+        MDRaisedButton:
+            id: 'Pedido_autorização'
+            text: "Pedir Autorização"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.3, "center_y": 0.1}
+            md_bg_color: "green"
+            
+        
+        MDRaisedButton:
+            id: 'mostrar_info'
+            text: "Mostrar Informações"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.7, "center_y": 0.1}
+            md_bg_color: "green"
+            on_release: app.mostrar_info()
