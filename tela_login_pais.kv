@@ -39,7 +39,7 @@ ScreenManager:
     
         
         MDTextField:
-            id: userp
+            id: user
             hint_text: "Email"
             icon_left: "account"
             mode: "rectangle"
@@ -51,7 +51,7 @@ ScreenManager:
             
         
         MDTextField:
-            id: passwordp
+            id: password
             mode: "rectangle"
             hint_text: "Senha"
             helper_text: "DIGITE SUA SENHA"
@@ -68,7 +68,7 @@ ScreenManager:
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
-            on_release: app.verificar_login_pais()
+            on_release: app.verificar_login_r()
 
         MDLabel:
             text: ''
