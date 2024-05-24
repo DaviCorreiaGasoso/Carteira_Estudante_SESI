@@ -98,11 +98,17 @@ class LoginInicial(MDApp):
             stts = mycursor.fetchone()[0]
             int(stts)
             if (stts==1):
-                stts = 'presente'
+                stts = 'Presente'
+                self.root.get_screen('Tela_Pais').ids.status_aluno_pais.text = stts
+                self.root.get_screen('Tela_Pais').ids.status_aluno_pais.text_color = (0,1,0,1)
+                
             else:
-                stts = 'ausente'
-
-            print (nome, serie, stts)
+                stts = 'Ausente'
+                self.root.get_screen('Tela_Pais').ids.status_aluno_pais.text = stts
+                self.root.get_screen('Tela_Pais').ids.status_aluno_pais.text_color = (1,0,0,1)
+                
+            self.root.get_screen('Tela_Pais').ids.nome_aluno_pais.text = nome
+            self.root.get_screen('Tela_Pais').ids.serie_aluno_pais.text = serie
     
     def verificar_login_estudantes(self):
         from conexao_bd import connect
