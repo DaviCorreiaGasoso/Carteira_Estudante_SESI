@@ -59,8 +59,8 @@ class LoginInicial(MDApp):
         from conexao_bd import connect
         mydb = connect()
 
-        user = self.root.get_screen('login_pais').ids.userp.text
-        password = self.root.get_screen('login_pais').ids.passwordp.text
+        user = self.root.get_screen('login_pais').ids.user.text
+        password = self.root.get_screen('login_pais').ids.password.text
 
         mycursor = mydb.cursor()
         sql = 'SELECT id_responsavel FROM responsavel WHERE email = %s AND senha = %s;'
