@@ -2,51 +2,46 @@ FloatLayout:
                 
     MDTopAppBar:
         title: "Carteira SESI"
-        pos_hint: {"center_y": 0.98}
+        pos_hint: {"top":1}
 
     AsyncImage:
         source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
         size_hint: 0.3,0.3
-        pos: 190,230
+        pos_hint: {'center_x': 0.3, 'center_y':0.5}
 
 
     MDLabel:
         text: "Informações do Aluno" 
         halign: 'center'
-        pos: 350,470
+        pos_hint: {'center_x':0.5, 'center_y':0.8}
         size_hint: .3, .2
         bold: True
 
     
     MDLabel:
         id: 'nome_aluno_pais'
-        mode: "rectangle"
-        size_hint_x: None
-        width: "240dp"
-        pos: 500,400
-        hint_text: "Nome"
+        text: 'oi'
+        pos_hint:{'center_x':1.045, 'center_y':0.6}
+        font_size: 25
+        halign: 'left'
 
     MDLabel:
         id: 'serie_aluno_pais'
-        mode: "rectangle"
-        size_hint_x: None
-        width: "240dp"
-        pos: 500,300
-        hint_text: "Série"
+        text: 'a'
+        pos_hint:{'center_x':1.045, 'center_y':0.45}
+        font_size: 25
+        halign: 'left'
+        
 
     MDLabel:
         id: 'status_aluno_pais'
-        size_hint: .3, .2 
-        halign: 'right'
-        pos: 500, 200
+        text: 'oi'
+        pos_hint:{'center_x':1.045, 'center_y':0.3}
         theme_text_color: 'Custom'
-        text_color: 0, 0, 0, 1
+        text_color: (0, 0, 0, 1)
+        font_size: 25
+        halign: 'left'
         
-    MDRaisedButton:
-        id: 'Pedido_autorização'
-        text: "Pedir Autorização"
-        size_hint: (0.3, 0.1)
-        font_style: 'H5'
-        pos_hint: {"center_x": 0.3, "center_y": 0.1}
-        md_bg_color: "green"
+
+
             

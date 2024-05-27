@@ -68,7 +68,7 @@ ScreenManager:
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
-            on_release: app.verificar_login_r()
+            on_release: app.verificar_login_pais()
 
         MDLabel:
             text: ''
@@ -78,6 +78,11 @@ ScreenManager:
             theme_text_color: 'Custom'
             text_color: 1,0,0,0
             id: text
+
+        MDRectangleFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x':0.1, 'center_y':0.95}
+            on_release: app.root.current = 'login_inicial'
     
 <MyCanvasWidget@Widget>:
     canvas.before:

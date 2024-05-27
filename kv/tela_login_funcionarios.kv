@@ -75,6 +75,11 @@ ScreenManager:
             text_color: 1,0,0,0
             id: text_color
     
+        MDRectangleFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x':0.1, 'center_y':0.95}
+            on_release: app.root.current = 'login_inicial'
+
 <MyCanvasWidget@Widget>:
     canvas.before:
         Color:

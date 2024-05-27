@@ -64,6 +64,11 @@ ScreenManager:
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
             on_release: app.login()
+
+        MDRectangleFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x':0.1, 'center_y':0.95}
+            on_release: app.root.current = 'login_inicial'
     
 <MyCanvasWidget@Widget>:
     canvas.before:
