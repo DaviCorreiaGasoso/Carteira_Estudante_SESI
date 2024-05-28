@@ -1,0 +1,65 @@
+ScreenManager:
+    Tela_Estudantes:
+
+<Tela_Estudantes>: 
+    name:'Tela_Estudantes'
+
+    FloatLayout:
+                
+        MDTopAppBar:
+            title: "Carteira SESI"
+            pos_hint: {"top":1}
+
+        AsyncImage:
+            source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
+            size_hint: 0.3,0.3
+            pos_hint: {'center_x': 0.3, 'center_y':0.5}
+
+
+        MDLabel:    
+            text: "Informações do Aluno" 
+            halign: 'center'
+            pos_hint: {'center_x':0.5, 'center_y':0.8}
+            size_hint: .3, .2
+            bold: True
+
+    
+        MDLabel:
+            id: nome_aluno
+            text: 'oi'
+            pos_hint:{'center_x':1.045, 'center_y':0.6}
+            font_size: 25
+            halign: 'left'
+
+        MDLabel:
+            id: serie_aluno
+            text: 'a'
+            pos_hint:{'center_x':1.045, 'center_y':0.45}
+            font_size: 25
+            halign: 'left'
+        
+        MDLabel:
+            id: status_aluno
+            text: 'oi'
+            pos_hint:{'center_x':1.045, 'center_y':0.3}
+            theme_text_color: 'Custom'
+            text_color: (0, 0, 0, 1)
+            font_size: 25
+            halign: 'left'
+        
+        MDRaisedButton:
+            id: voltar
+            text: "Voltar"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.3, "center_y": 0.1}
+            md_bg_color: "red"
+            on_release: app.root.current = 'login_pais'
+
+        MDRaisedButton:
+            id: pedidoautorizacao
+            text: 'Gerar QR CODE'
+            size_hint: (.3, .1)
+            font_style: 'H5'
+            pos_hint: {'center_x':0.7, 'center_y':0.1}
+            md_bg_color: 'green'

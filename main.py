@@ -9,7 +9,7 @@ class Gerenciador (ScreenManager):
 class Login_Estudantes(Screen):
     pass
 
-class Tela_Estudante(Screen):
+class Tela_Estudantes(Screen):
     pass
 
 class Login_Inicial(Screen):
@@ -45,7 +45,6 @@ class LoginInicial(MDApp):
         mycursor.execute(sql, val)
         v = mycursor.fetchone()
         mydb.commit()
-        print (v, user, password)
         mydb.close()
 
         if (v==None):
@@ -53,7 +52,7 @@ class LoginInicial(MDApp):
             self.root.get_screen('login_funcionarios').ids.text_color.text_color = (1,0,0,1)
 
         else:
-            self.root.current = 'Tela_Pais'
+            v = v[0]
 
     def verificar_login_pais(self):
         from conexao_bd import connect
@@ -65,19 +64,18 @@ class LoginInicial(MDApp):
         mycursor = mydb.cursor()
         sql = 'SELECT id_responsavel FROM responsavel WHERE email = %s AND senha = %s;'
         val = (user, password)
+        
         mycursor.execute(sql, val)
-        v = mycursor.fetchone()[0]
-        str(v)
+        v = mycursor.fetchone()
         mydb.commit()
-        print (v)
-        print (user, password)
         mydb.close()
 
-        if v is None:
+        if (v==None):
             self.root.get_screen('login_pais').ids.text.text = "Credenciais incorretas"
             self.root.get_screen('login_pais').ids.text.text_color = (1,0,0,1)
 
         else:
+            v = v[0]
             self.root.current = 'Tela_Pais'
             mydb = connect()
 
@@ -118,20 +116,53 @@ class LoginInicial(MDApp):
         password = self.root.get_screen('login_estudantes').ids.password.text
 
         mycursor = mydb.cursor()
-        sql = 'SELECT id_responsavel FROM responsavel WHERE email = %s AND senha = %s;'
+        sql = 'SELECT matricula FROM aluno WHERE email = %s AND senha = %s;'
         val = (user, password)
         mycursor.execute(sql, val)
         v = mycursor.fetchone()
         mydb.commit()
         mydb.close()
 
-        if v is None:
+        if (v==None):
             self.root.get_screen('login_estudantes').ids.text.text = "Credenciais incorretas"
             self.root.get_screen('login_estudantes').ids.text.text_color = (1,0,0,1)
 
         else:
-            print ('oi')
+            v = v[0]
+            self.root.current = 'Tela_Estudantes'
+            mydb = connect()
 
+            mycursor = mydb.cursor()
+            sql = 'SELECT nome FROM aluno WHERE matricula = %s'
+            val = (v,)
+            mycursor.execute(sql, val)
+            nome = mycursor.fetchone()[0]
+            str(nome)
+            sql = 'SELECT turma FROM aluno WHERE matricula = %s'
+            val = (v,)
+            mycursor.execute(sql,val)
+            serie = mycursor.fetchone()[0]
+            str(serie)
+            sql = 'SELECT stts FROM aluno WHERE matricula = %s'
+            val = (v,)
+            mycursor.execute(sql, val)
+            stts = mycursor.fetchone()[0]
+            int(stts)
+            if (stts==1):
+                stts = 'Presente'
+                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text = stts
+                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text_color = (0,1,0,1)
+                
+            else:
+                stts = 'Ausente'
+                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text = stts
+                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text_color = (1,0,0,1)
+                
+            self.root.get_screen('Tela_Estudantes').ids.nome_aluno.text = nome
+            self.root.get_screen('Tela_Estudantes').ids.serie_aluno.text = serie
+
+    def gerarqr(self):
+        pass
 
 
 LoginInicial().run()

@@ -1,7 +1,7 @@
 #:include kv/tela_login_estudantes.kv
 #:include kv/tela_login_funcionarios.kv
 #:include kv/tela_login_pais.kv
-
+#:include kv/tela_estudantes.kv
 
 ScreenManager:
     Login_Inicial:   
@@ -9,13 +9,13 @@ ScreenManager:
     Login_Funcionarios:
     Login_Pais:
     Tela_Pais:
-    Tela_Estudante:
+    Tela_Estudantes:
 
 <Login_Estudantes>:
-    name: 'login_estudante'
+    name: 'login_estudantes'
 
-<Tela_Estudante>:
-    name: 'tela_estudante'
+<Tela_Estudantes>:
+    name: 'Tela_Estudantes'
 
 <Login_Funcionarios>
     name: 'login_funcionarios'
@@ -53,7 +53,7 @@ ScreenManager:
         border_radius: [20]
         font_size: 25
         pos_hint: {'center_x': 0.45,'center_y':0.610 }
-        on_release: app.root.current = 'login_estudante'
+        on_release: app.root.current = 'login_estudantes'
 
     MDRaisedButton:
         text: 'RESPONSÁVEL'

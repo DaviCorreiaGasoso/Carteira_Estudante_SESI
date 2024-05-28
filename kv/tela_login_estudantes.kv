@@ -31,7 +31,14 @@ ScreenManager:
             size_hint: (0.6, 0.1)
             pos_hint: {"center_x": 0.5, "top": 0.8}
 
-    
+        MDLabel:
+            text: ''
+            pos_hint: {'center_x': 0.5, 'center_y':0.2}
+            halign: 'center'
+            font_size: 30
+            theme_text_color: 'Custom'
+            text_color: 1,0,0,0
+            id: text
         
         MDTextField:
             id: user
@@ -63,7 +70,7 @@ ScreenManager:
             font_style: 'H5'
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
             md_bg_color: "green"
-            on_release: app.login()
+            on_release: app.verificar_login_estudantes()
 
         MDRectangleFlatButton:
             text: 'Voltar'
