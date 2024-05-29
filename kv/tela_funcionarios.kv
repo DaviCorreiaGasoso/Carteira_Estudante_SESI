@@ -2,3 +2,19 @@ ScreenManager:
     Tela_Funcionarios:
 
 <Tela_Funcionarios>:
+    name: "tela_funcionarios"
+
+    FloatLayout:
+
+        MDTopAppBar:
+            title: 'Carteira_SESI'
+            pos_hint:{'top':1}
+
+        MDIconButton:
+            icon: 'camera'
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+        MDRectangleFlatButton:
+            text: 'Voltar'
+            pos_hint: {'center_x':0.1, 'center_y':0.05}
+            on_release: app.root.current = 'login_inicial'

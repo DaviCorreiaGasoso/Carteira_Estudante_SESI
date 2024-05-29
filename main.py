@@ -53,6 +53,9 @@ class LoginInicial(MDApp):
 
         else:
             v = v[0]
+            self.root.current = 'tela_funcionarios'
+            mydb = connect()
+
 
     def verificar_login_pais(self):
         from conexao_bd import connect
