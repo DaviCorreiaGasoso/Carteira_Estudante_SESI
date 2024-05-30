@@ -50,6 +50,21 @@ ScreenManager:
         size_hint: None, None
         size: 300, 300
         pos_hint: {'center_x':0.5, 'center_y':0.5}
+        canvas.before:
+
+            Color:
+                rgba: 0,0,0,0.25
+            RoundedRectangle:
+                pos: self.center_x-405/2, self.center_y-280/2
+                size: 420, 270
+                radius: [20,20,20,20]
+
+            Color:
+                rgba: 0.9,0.9,0.9,1
+            RoundedRectangle:
+                pos: self.center_x-420/2, self.center_y-270/2
+                size: 420, 270
+                radius: [20,20,20,20]
 
     MDRaisedButton:
         text: 'ALUNO'
@@ -92,20 +107,3 @@ ScreenManager:
         source: 'https://cdn-icons-png.flaticon.com/512/251/251054.png'
         size_hint: 0.08, 0.08
         pos_hint: {'center_x': 0.640,'center_y': 0.40}
-
-<MyCanvasWidget@Widget>:
-    canvas.before:
-
-        Color:
-            rgba: 0,0,0,0.25
-        RoundedRectangle:
-            pos: self.center_x-405/2, self.center_y-280/2
-            size: 420, 270
-            radius: [20,20,20,20]
-
-        Color:
-            rgba: 0.9,0.9,0.9,1
-        RoundedRectangle:
-            pos: self.center_x-420/2, self.center_y-270/2
-            size: 420, 270
-            radius: [20,20,20,20]
