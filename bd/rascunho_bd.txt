@@ -56,9 +56,9 @@ INSERT INTO responsavel (nome, telefone, email, senha) VALUES
     ('Lurdes', '(81) 90000-0000', 'lurdes@gmail.com', '1234');
 
 INSERT INTO aluno (matricula, nome, turma, turno, responsavel_id, email, senha, stts) VALUES
-    ('0001234', 'Melissa', '3D','Vespertino',  1, 'melissa@gmail.com', '1234', 1),
-    ('0001235', 'Sofia', '3D','Vespertino', 2, 'sofia@gmail.com', '1234', 0),
-    ('0001236', 'Emilly', '3D','Vespertino', 3, 'emilly@gmail.com', '1234', 0),
-    ('0001237', 'Letícia', '3D','Vespertino', 4, 'leticia@gmail.com', '1234', 1),
-    ('0001238', 'Davi', '3D','Vespertino', 5, 'davi@gmail.com', '1234', 1),
-    ('0001239', 'Matheus', '3D','Vespertino', 6, 'matheus@gmail.com', '1234', 0);
+    ('0001234', 'Melissa', '3D','V',  1, 'melissa@gmail.com', '1234', 1),
+    ('0001235', 'Sofia', '3D','V', 2, 'sofia@gmail.com', '1234', 0),
+    ('0001236', 'Emilly', '3D','V', 3, 'emilly@gmail.com', '1234', 0),
+    ('0001237', 'Letícia', '3D','V', 4, 'leticia@gmail.com', '1234', 1),
+    ('0001238', 'Davi', '3D','V', 5, 'davi@gmail.com', '1234', 1),
+    ('0001239', 'Matheus', '3D','V', 6, 'matheus@gmail.com', '1234', 0);
