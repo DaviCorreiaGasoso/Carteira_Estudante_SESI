@@ -23,13 +23,22 @@ ScreenManager:
             size_hint: .3, .2
             bold: True
 
-    
+        MDLabel:
+            text: 'Nome Completo'
+            pos_hint:{'center_x':1.045, 'center_y':0.65}
+            bold: True
+
         MDLabel:
             id: nome_aluno
             text: 'oi'
             pos_hint:{'center_x':1.045, 'center_y':0.6}
             font_size: 25
             halign: 'left'
+        
+        MDLabel:
+            text: 'Série'
+            pos_hint:{'center_x':1.045, 'center_y':0.5}
+            bold: True
 
         MDLabel:
             id: serie_aluno
@@ -38,6 +47,11 @@ ScreenManager:
             font_size: 25
             halign: 'left'
         
+        MDLabel:
+            text: 'Matrícula'
+            pos_hint:{'center_x':1.045, 'center_y':0.35}
+            bold: True
+
         MDLabel:
             id: matricula
             text: 'oi'
@@ -48,12 +62,9 @@ ScreenManager:
             halign: 'left'
         
         MDRaisedButton:
-            id: voltar
-            text: "Voltar"
-            size_hint: (0.3, 0.1)
-            font_style: 'H5'
-            pos_hint: {"center_x": 0.3, "center_y": 0.1}
-            md_bg_color: "red"
+            text: 'Voltar'
+            pos_hint: {'center_x':0.1, 'center_y':0.80}
+            md_bg_color: "blue"
             on_release: app.root.current = 'login_estudantes'
 
         MDRaisedButton:
@@ -61,6 +72,6 @@ ScreenManager:
             text: 'Gerar QR CODE'
             size_hint: (.3, .1)
             font_style: 'H5'
-            pos_hint: {'center_x':0.7, 'center_y':0.1}
+            pos_hint: {'center_x':0.5, 'center_y':0.1}
             md_bg_color: 'green'
             on_release: app.criarqr()

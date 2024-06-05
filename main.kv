@@ -3,6 +3,7 @@
 #:include kv/tela_login_pais.kv
 #:include kv/tela_estudantes.kv
 #:include kv/tela_funcionarios.kv
+#:include kv/qrcode.kv
 
 ScreenManager:
     Login_Inicial:   
@@ -12,6 +13,7 @@ ScreenManager:
     Tela_Pais:
     Tela_Estudantes:
     Tela_Funcionarios:
+    Tela_Qrcode:
 
 <Login_Estudantes>:
     name: 'login_estudantes'
@@ -30,6 +32,9 @@ ScreenManager:
 
 <Tela_Funcionarios>:
     name: 'tela_funcionarios'
+
+<Tela_Qrcode>:
+    name: 'Tela_Qrcode'
 
 <Login_Inicial>:
     name: 'login_inicial'
@@ -93,17 +98,4 @@ ScreenManager:
         pos_hint: {'center_x': 0.45,'center_y':0.385 }
         on_release: app.root.current = 'login_funcionarios'
 
-    AsyncImage:
-        source: 'https://cdn-icons-png.flaticon.com/512/21/21079.png'
-        size_hint: 0.08, 0.08
-        pos_hint: {'center_x': 0.640,'center_y': 0.61}
-
-    AsyncImage:
-        source: 'https://cdn-icons-png.flaticon.com/128/3106/3106921.png'
-        size_hint: 0.08, 0.08
-        pos_hint: {'center_x': 0.640,'center_y': 0.51}
-
-    AsyncImage:
-        source: 'https://cdn-icons-png.flaticon.com/512/251/251054.png'
-        size_hint: 0.08, 0.08
-        pos_hint: {'center_x': 0.640,'center_y': 0.40}
+    

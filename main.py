@@ -14,7 +14,7 @@ class Login_Estudantes(Screen):
 class Tela_Estudantes(Screen):
     pass
 
-class Tela_QrCode (Screen):
+class Tela_Qrcode (Screen):
     pass
 
 class Login_Inicial(Screen):
@@ -157,13 +157,13 @@ class LoginInicial(MDApp):
             self.root.get_screen('Tela_Estudantes').ids.matricula.text = v
     
     def criarqr(self):
-        
-        matricula = self.root.get_screen("Tela_Estudante").ids.matricula.text
+        self.root.current = 'Tela_Qrcode'
+        matricula = self.root.get_screen("Tela_Estudantes").ids.matricula.text
 
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
+            box_size=15,
             border=4,
         )
         qr.add_data(f"{matricula}")
@@ -171,8 +171,7 @@ class LoginInicial(MDApp):
         qr_image = qr.make_image(fill_color="black", back_color="white")
         qr_image.save("qrcode.png")
 
-        qr_code_image = Image(source="qrcode.png", size_hint=(None, None), size=(200, 200), pos_hint={'center_x': 0.5, 'center_y': 0.5})
-        self.screen.add_widget(qr_code_image)
+        self.root.get_screen("Tela_Qrcode").ids.qr.source = 'qrcode.png'
 
 
 LoginInicial().run()

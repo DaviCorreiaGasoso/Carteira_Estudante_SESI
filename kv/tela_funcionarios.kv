@@ -14,7 +14,8 @@ ScreenManager:
             icon: 'camera'
             pos_hint: {'center_x':0.5, 'center_y':0.5}
 
-        MDRectangleFlatButton:
+        MDRaisedButton:
             text: 'Voltar'
-            pos_hint: {'center_x':0.1, 'center_y':0.05}
-            on_release: app.root.current = 'login_inicial'
+            pos_hint: {'center_x':0.1, 'center_y':0.80}
+            md_bg_color: "blue"
+            on_release: app.root.current = 'login_funcionarios'

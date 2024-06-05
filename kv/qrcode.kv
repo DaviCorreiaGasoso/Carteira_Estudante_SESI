@@ -1,0 +1,21 @@
+ScreenManager:
+    Tela_Qrcode:
+
+<Tela_Qrcode>:
+    name: 'Tela_Qrcode'
+
+    FloatLayout:
+        Image:
+            id: qr
+            source:'qrcode.png'
+            size_hint: 0.3,0.3
+            pos_hint: {'center_x': 0.5, 'center_y':0.5}
+        
+        MDRaisedButton:
+            id: voltar
+            text: "Voltar"
+            size_hint: (0.3, 0.1)
+            font_style: 'H5'
+            pos_hint: {"center_x": 0.5, "center_y": 0.1}
+            md_bg_color: "red"
+            on_release: app.root.current = 'Tela_Estudantes'
