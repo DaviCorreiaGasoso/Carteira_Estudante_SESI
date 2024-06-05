@@ -2,6 +2,8 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.app import MDApp
 from conexao_bd import connect
+from kivy.uix.image import Image
+import qrcode
 
 class Gerenciador (ScreenManager):
     pass
@@ -10,6 +12,9 @@ class Login_Estudantes(Screen):
     pass
 
 class Tela_Estudantes(Screen):
+    pass
+
+class Tela_QrCode (Screen):
     pass
 
 class Login_Inicial(Screen):
@@ -146,26 +151,28 @@ class LoginInicial(MDApp):
             mycursor.execute(sql,val)
             serie = mycursor.fetchone()[0]
             str(serie)
-            sql = 'SELECT stts FROM aluno WHERE matricula = %s'
-            val = (v,)
-            mycursor.execute(sql, val)
-            stts = mycursor.fetchone()[0]
-            int(stts)
-            if (stts==1):
-                stts = 'Presente'
-                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text = stts
-                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text_color = (0,1,0,1)
-                
-            else:
-                stts = 'Ausente'
-                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text = stts
-                self.root.get_screen('Tela_Estudantes').ids.status_aluno.text_color = (1,0,0,1)
                 
             self.root.get_screen('Tela_Estudantes').ids.nome_aluno.text = nome
             self.root.get_screen('Tela_Estudantes').ids.serie_aluno.text = serie
+            self.root.get_screen('Tela_Estudantes').ids.matricula.text = v
+    
+    def criarqr(self):
+        
+        matricula = self.root.get_screen("Tela_Estudante").ids.matricula.text
 
-    def gerarqr(self):
-        pass
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(f"{matricula}")
+        qr.make(fit=True)
+        qr_image = qr.make_image(fill_color="black", back_color="white")
+        qr_image.save("qrcode.png")
+
+        qr_code_image = Image(source="qrcode.png", size_hint=(None, None), size=(200, 200), pos_hint={'center_x': 0.5, 'center_y': 0.5})
+        self.screen.add_widget(qr_code_image)
 
 
 LoginInicial().run()

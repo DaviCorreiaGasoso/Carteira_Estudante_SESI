@@ -6,6 +6,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
 from kivymd.uix.button import MDFlatButton
+import qrcode
 import QRCode
 
 class TelaEstudante(MDApp):
@@ -47,9 +48,9 @@ class TelaEstudante(MDApp):
             return
 
         # Criando e exibindo o QR Code
-        qr = QRCode.QRCode(
+        qr = qrcode.QRCode(
             version=1,
-            error_correction=QRCode.constants.ERROR_CORRECT_L,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
             box_size=10,
             border=4,
         )
