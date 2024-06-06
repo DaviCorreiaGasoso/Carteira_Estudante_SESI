@@ -4,6 +4,8 @@ from kivymd.app import MDApp
 from conexao_bd import connect
 from kivy.uix.image import Image
 import qrcode
+from kivy.core.window import Window
+Window.size = (350, 600)
 
 class Gerenciador (ScreenManager):
     pass
@@ -163,8 +165,8 @@ class LoginInicial(MDApp):
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=15,
-            border=4,
+            box_size=60,
+            border=8,
         )
         qr.add_data(f"{matricula}")
         qr.make(fit=True)

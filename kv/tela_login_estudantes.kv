@@ -4,28 +4,29 @@ ScreenManager:
 <Login_Estudantes>:
     name: 'login_estudantes'
 
-    MyCanvasWidget:
-        size_hint: None, None
-        size: 300, 300
-        pos_hint:  {"center_x": 0.5, "top": 0.9}
-
     FloatLayout:
+
+        Image:
+            source:'fundo.jpeg'
+            allow_stretch: True
+            size_hint: 1.8, 1.2
+            pos_hint: {'center_x': 0.5, 'center_y':0.6}
                 
         MDLabel:
             text: "LOGIN"
             halign: 'center'
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            text_color: 0, 0, 1, 1
             font_style: 'H3'
             font_name: 'Georgia'
             size_hint: (0.6, 0.1)
             pos_hint: {"center_x": 0.5, "top": 0.9}
         
         MDLabel:
-            text: "ESTUDANTE"
+            text: "Estudante"
             halign: 'center'
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 1
+            text_color: 0, 0, 1, 1
             font_style: 'H4'
             font_name: 'Georgia'
             size_hint: (0.6, 0.1)
@@ -74,15 +75,6 @@ ScreenManager:
 
         MDRectangleFlatButton:
             text: 'Voltar'
-            pos_hint: {'center_x':0.1, 'center_y':0.95}
+            pos_hint: {'center_x':0.15, 'center_y':0.95}
             on_release: app.root.current = 'login_inicial'
     
-<MyCanvasWidget@Widget>:
-    canvas.before:
-        Color:
-            rgba:0,0,0.8,1
-        
-        RoundedRectangle:
-            pos: self.center_x - 500/2, self.center_y - 50/2
-            size: 500, 200
-            radius: [20,20,20,20]

@@ -4,62 +4,78 @@ ScreenManager:
 <Tela_Pais>: 
     name: 'Tela_Pais'
 
-    FloatLayout:
-                
-        MDTopAppBar:
-            title: "Carteira SESI"
-            pos_hint: {"top":1}
+    ScrollView:
+        do_scroll_x: False
 
-        AsyncImage:
-            source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
-            size_hint: 0.3,0.3
-            pos_hint: {'center_x': 0.3, 'center_y':0.5}
+        FloatLayout:
+            
 
+            MDTopAppBar:
+                title: "Carteira SESI"
+                pos_hint: {"top":1}
 
-        MDLabel:    
-            text: "Informações do Aluno" 
-            halign: 'center'
-            pos_hint: {'center_x':0.5, 'center_y':0.8}
-            size_hint: .3, .2
-            bold: True
+            AsyncImage:
+                source:'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
+                size_hint: 0.3, 0.3
+                pos_hint: {'center_x': 0.5, 'center_y':0.6}
 
-    
-        MDLabel:
-            id: nome_aluno_pais
-            text: 'oi'
-            pos_hint:{'center_x':1.045, 'center_y':0.6}
-            font_size: 25
-            halign: 'left'
+            MDLabel:    
+                text: "Informações do Aluno" 
+                halign: 'center'
+                size_hint: .3, .2
+                pos_hint: {'center_x':0.5, 'center_y':0.8}
+                bold: True
 
-        MDLabel:
-            id: serie_aluno_pais
-            text: 'a'
-            pos_hint:{'center_x':1.045, 'center_y':0.45}
-            font_size: 25
-            halign: 'left'
-        
-        MDLabel:
-            id: status_aluno_pais
-            text: 'oi'
-            pos_hint:{'center_x':1.045, 'center_y':0.3}
-            theme_text_color: 'Custom'
-            text_color: (0, 0, 0, 1)
-            font_size: 25
-            halign: 'left'
-        
-        MDRaisedButton:
-            id: voltar
-            text: "Voltar"
-            size_hint: (0.3, 0.1)
-            font_style: 'H5'
-            pos_hint: {"center_x": 0.3, "center_y": 0.1}
-            md_bg_color: "red"
-            on_release: app.root.current = 'login_pais'
+            MDLabel:
+                text: 'Nome Completo'
+                bold: True
+                pos_hint:{'center_x':0.5, 'center_y':0.45}
+                halign:'center'
 
-        MDRaisedButton:
-            id: pedidoautorizacao
-            text: 'Pedir autorização'
-            size_hint: (.3, .1)
-            font_style: 'H5'
-            pos_hint: {'center_x':0.7, 'center_y':0.1}
-            md_bg_color: 'green'
+            MDLabel:
+                id: nome_aluno_pais
+                text: 'oi'
+                font_size: 23
+                halign: 'center'
+                multiline: True
+                pos_hint:{'center_x':0.5, 'center_y':0.4}
+
+            MDLabel:
+                text: 'Série'
+                bold: True
+                pos_hint:{'center_x':0.7, 'center_y':0.35}
+
+            MDLabel:
+                id: serie_aluno_pais
+                text: 'a'
+                font_size: 25
+                pos_hint:{'center_x':0.7, 'center_y':0.30}
+                halign: 'left'
+
+            MDLabel:
+                text: 'Presença'
+                bold: True
+                pos_hint:{'center_x':1.045, 'center_y':0.35}
+
+            MDLabel:
+                id: status_aluno_pais
+                text: 'oi'
+                theme_text_color: 'Custom'
+                text_color: (0, 0, 0, 1)
+                font_size: 25
+                halign: 'left'
+                pos_hint:{'center_x':1.045, 'center_y':0.3}
+
+            MDRaisedButton:
+                text: 'Voltar'
+                pos_hint:{"top":0.97}
+                md_bg_color: "blue"
+                on_release: app.root.current = 'login_pais'
+
+            MDRaisedButton:
+                id: historico
+                text: 'Histórico'
+                size_hint: (.3, .1)
+                font_style: 'H5'
+                pos_hint: {'center_x':0.5, 'center_y':0.1}
+                md_bg_color: 'green'

@@ -3,75 +3,78 @@ ScreenManager:
 
 <Tela_Estudantes>: 
     name:'Tela_Estudantes'
+    ScrollView:
+        do_scroll_x: False
+        FloatLayout:
+                    
+            MDTopAppBar:
+                title: "Carteira SESI"
+                pos_hint: {"top":1}
 
-    FloatLayout:
-                
-        MDTopAppBar:
-            title: "Carteira SESI"
-            pos_hint: {"top":1}
-
-        AsyncImage:
-            source:'https://cdn0.iconfinder.com/data/icons/printing-house/35/29-512.png'
-            size_hint: 0.3,0.3
-            pos_hint: {'center_x': 0.3, 'center_y':0.5}
+            AsyncImage:
+                source:'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'
+                size_hint: 0.3, 0.3
+                pos_hint: {'center_x': 0.5, 'center_y':0.6}
 
 
-        MDLabel:    
-            text: "Informações do Aluno" 
-            halign: 'center'
-            pos_hint: {'center_x':0.5, 'center_y':0.8}
-            size_hint: .3, .2
-            bold: True
+            MDLabel:    
+                text: "Informações do Aluno" 
+                halign: 'center'
+                size_hint: .3, .2
+                pos_hint: {'center_x':0.5, 'center_y':0.8}
+                bold: True
 
-        MDLabel:
-            text: 'Nome Completo'
-            pos_hint:{'center_x':1.045, 'center_y':0.65}
-            bold: True
+            MDLabel:
+                text: 'Nome Completo'
+                bold: True
+                pos_hint:{'center_x':0.5, 'center_y':0.45}
+                halign:'center'
 
-        MDLabel:
-            id: nome_aluno
-            text: 'oi'
-            pos_hint:{'center_x':1.045, 'center_y':0.6}
-            font_size: 25
-            halign: 'left'
-        
-        MDLabel:
-            text: 'Série'
-            pos_hint:{'center_x':1.045, 'center_y':0.5}
-            bold: True
+            MDLabel:
+                id: nome_aluno
+                text: 'oi'
+                font_size: 23
+                halign: 'center'
+                multiline: True
+                pos_hint:{'center_x':0.5, 'center_y':0.4}
+            
+            MDLabel:
+                text: 'Série'
+                bold: True
+                pos_hint:{'center_x':0.7, 'center_y':0.35}
 
-        MDLabel:
-            id: serie_aluno
-            text: 'a'
-            pos_hint:{'center_x':1.045, 'center_y':0.45}
-            font_size: 25
-            halign: 'left'
-        
-        MDLabel:
-            text: 'Matrícula'
-            pos_hint:{'center_x':1.045, 'center_y':0.35}
-            bold: True
+            MDLabel:
+                id: serie_aluno
+                text: 'a'
+                font_size: 25
+                pos_hint:{'center_x':0.7, 'center_y':0.30}
+                halign: 'left'
+            
+            MDLabel:
+                text: 'Matrícula'
+                bold: True
+                pos_hint:{'center_x':1.045, 'center_y':0.35}
 
-        MDLabel:
-            id: matricula
-            text: 'oi'
-            pos_hint:{'center_x':1.045, 'center_y':0.3}
-            theme_text_color: 'Custom'
-            text_color: (0, 0, 0, 1)
-            font_size: 25
-            halign: 'left'
-        
-        MDRaisedButton:
-            text: 'Voltar'
-            pos_hint: {'center_x':0.1, 'center_y':0.80}
-            md_bg_color: "blue"
-            on_release: app.root.current = 'login_estudantes'
+            MDLabel:
+                id: matricula
+                text: 'oi'
+                theme_text_color: 'Custom'
+                text_color: (0, 0, 0, 1)
+                font_size: 25
+                halign: 'left'
+                pos_hint:{'center_x':1.045, 'center_y':0.3}
+            
+            MDRaisedButton:
+                text: 'Voltar'
+                pos_hint:{"top":0.97}
+                md_bg_color: "blue"
+                on_release: app.root.current = 'login_estudantes'
 
-        MDRaisedButton:
-            id: gerarqr
-            text: 'Gerar QR CODE'
-            size_hint: (.3, .1)
-            font_style: 'H5'
-            pos_hint: {'center_x':0.5, 'center_y':0.1}
-            md_bg_color: 'green'
-            on_release: app.criarqr()
+            MDRaisedButton:
+                id: gerarqr
+                text: 'Gerar QR CODE'
+                size_hint: (.3, .1)
+                font_style: 'H5'
+                pos_hint: {'center_x':0.5, 'center_y':0.1}
+                md_bg_color: 'green'
+                on_release: app.criarqr()
