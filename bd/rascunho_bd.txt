@@ -62,3 +62,8 @@ INSERT INTO aluno (matricula, nome, turma, turno, responsavel_id, email, senha, 
     ('0001237', 'Letícia', '3D','V', 4, 'leticia@gmail.com', '1234', 1),
     ('0001238', 'Davi', '3D','V', 5, 'davi@gmail.com', '1234', 1),
     ('0001239', 'Matheus', '3D','V', 6, 'matheus@gmail.com', '1234', 0);
+
+INSERT INTO porteiro (nome, email, senha) VALUES
+    ('Beto', 'beto@gmail.com', '1234'),
+    ('Chico', 'chico@gmail.com', '1234'),
+    ('Giva', 'giva@gmail.com', '1234');
